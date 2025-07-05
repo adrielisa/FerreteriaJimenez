@@ -1,14 +1,30 @@
 // Componente Header
 function HeaderComponent() {
     return `
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="hamburger" id="hamburger">
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container">
+                <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span></span>
                     <span></span>
                     <span></span>
+                </button>
+                <a class="navbar-brand logo ms-auto" href="index.html">Ferreterías Jiménez</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
                 </div>
-                <h1 class="logo">Ferreterías Jiménez</h1>
             </div>
         </nav>
     `;
@@ -17,12 +33,25 @@ function HeaderComponent() {
 // Componente Footer
 function FooterComponent() {
     return `
-        <div class="footer-content">
-            <h3>Ferreterías Jiménez</h3>
-            <div class="footer-links">
-                <a href="contacto.html">Contacto</a>
-                <a href="nosotros.html">Acerca de</a>
-                <a href="productos.html">Productos</a>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Ferreterías Jiménez</h3>
+                <div class="footer-links">
+                    <a href="contacto.html">Contacto</a>
+                    <a href="nosotros.html">Acerca de</a>
+                    <a href="productos.html">Productos</a>
+                </div>
+                <div class="social-links mt-3">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <img src="assets/facebook.png" alt="Facebook" class="social-icon">
+                    </a>
+                    <a href="#" class="social-link" aria-label="WhatsApp">
+                        <img src="assets/WhatsApp.png" alt="WhatsApp" class="social-icon">
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <img src="assets/Instagram.png" alt="Instagram" class="social-icon">
+                    </a>
+                </div>
             </div>
         </div>
     `;
@@ -34,29 +63,6 @@ function CTAButtonComponent(text = "Quiero cotizar", variant = "primary") {
         <button class="cta-button cta-button--${variant}" id="cta-main">
             ${text}
         </button>
-    `;
-}
-
-// Componente Grid de Marcas
-function BrandsGridComponent() {
-    const brands = [
-        { name: "TRUPER", color: "#ff6b35", logo: "truper-logo.png" },
-        { name: "PRETUL", color: "#ffa500", logo: "pretul-logo.png" },
-        { name: "VOLTECK", color: "#4a5568", logo: "volteck-logo.png" },
-        { name: "FOSET", color: "#2b6cb0", logo: "foset-logo.png" },
-        { name: "FIERO", color: "#1a1a1a", logo: "fiero-logo.png" },
-        { name: "HERMEX", color: "#dc2626", logo: "hermex-logo.png" }
-    ];
-
-    return `
-        <div class="brands-container">
-            ${brands.map(brand => `
-                <div class="brand-item" style="background-color: ${brand.color}">
-                    <img src="images/brands/${brand.logo}" alt="${brand.name}" class="brand-logo">
-                    <span class="brand-name">${brand.name}</span>
-                </div>
-            `).join('')}
-        </div>
     `;
 }
 
@@ -78,12 +84,6 @@ function renderComponents() {
     const ctaElement = document.getElementById('cta-button');
     if (ctaElement) {
         ctaElement.innerHTML = CTAButtonComponent();
-    }
-    
-    // Renderizar Grid de Marcas
-    const brandsElement = document.getElementById('brands-grid');
-    if (brandsElement) {
-        brandsElement.innerHTML = BrandsGridComponent();
     }
 }
 

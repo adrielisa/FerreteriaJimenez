@@ -1,44 +1,158 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferreterías Jiménez</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <!-- Header Component -->
     <header id="header-component"></header>
-    
+
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <h1>Herramientas y materiales de calidad para tu obra o proyecto</h1>
-            <div id="cta-button"></div>
+        <section class="hero-section bg-gradient text-white text-center py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold mb-4">Herramientas y materiales de calidad para tu obra o proyecto</h1>
+                        <div id="cta-button"></div>
+                    </div>
+                </div>
+            </div>
         </section>
-        
+
         <!-- About Section -->
-        <section class="about">
-            <h2>Somos tu ferretería de confianza: tornillos, tuberías, herramientas y más, al mejor precio.</h2>
-            <p>Contamos con una amplia gama de marcas</p>
-            <div class="brands-grid" id="brands-grid"></div>
+        <section class="about-section py-5 bg-light">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="fs-2 fw-bold mb-3 text-dark">Somos tu ferretería de confianza: tornillos, tuberías, herramientas y más, al mejor precio.</h2>
+                        <p class="lead text-muted mb-5">Contamos con una amplia gama de marcas</p>
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="brand-item p-2 rounded h-100 d-flex align-items-center justify-content-center">
+                            <img src="assets/TRUPER.svg" alt="TRUPER" class="img-fluid brand-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="brand-item p-2 rounded h-100 d-flex align-items-center justify-content-center">
+                            <img src="assets/PRETUL.svg" alt="PRETUL" class="img-fluid brand-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="brand-item p-2 rounded h-100 d-flex align-items-center justify-content-center">
+                            <img src="assets/VOLTECK.svg" alt="VOLTECK" class="img-fluid brand-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="brand-item p-2 rounded h-100 d-flex align-items-center justify-content-center">
+                            <img src="assets/FOSET.svg" alt="FOSET" class="img-fluid brand-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="brand-item p-2 rounded h-100 d-flex align-items-center justify-content-center">
+                            <img src="assets/FIERO.svg" alt="FIERO" class="img-fluid brand-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="brand-item p-2 rounded h-100 d-flex align-items-center justify-content-center">
+                            <img src="assets/HERMEX.svg" alt="HERMEX" class="img-fluid brand-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        
+
         <!-- Location Section -->
-        <section class="location">
-            <h2>Nuestra ubicación:</h2>
-            <div class="map-container">
-                <img src="images/map.jpg" alt="Ubicación Ferreterías Jiménez" class="map-image">
+        <section class="location-section py-5">
+            <div class="container text-center">
+                <h2 class="fs-2 fw-bold mb-4 text-dark">Nuestra ubicación:</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="map-placeholder p-5 rounded shadow-sm bg-light border border-2 border-dashed">
+                            <div class="map-icon fs-1 mb-3">📍</div>
+                            <p class="fw-bold text-muted mb-0">Mapa próximamente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section py-5 bg-light">
+            <div class="container text-center">
+                <h2 class="fs-2 fw-bold mb-5 text-dark">Lo que opinan nuestros clientes</h2>
+                <div class="row g-4">
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="testimonial-card bg-dark text-white p-4 rounded shadow h-100">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face&auto=format" 
+                                     alt="Pedro Ortiz" class="rounded-circle me-3" width="60" height="60">
+                                <div class="text-start">
+                                    <h5 class="mb-0 text-white">Pedro Ortiz</h5>
+                                </div>
+                            </div>
+                            <p class="text-light mb-0">Ferretería de confianza para comprar mis materiales</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="testimonial-card bg-dark text-white p-4 rounded shadow h-100">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" 
+                                     alt="Juan Hernández" class="rounded-circle me-3" width="60" height="60">
+                                <div class="text-start">
+                                    <h5 class="mb-0 text-white">Juan Hernández</h5>
+                                </div>
+                            </div>
+                            <p class="text-light mb-0">Está bien ubicada y me queda de paso, atiende con una actitud muy agradable</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="testimonial-card bg-dark text-white p-4 rounded shadow h-100">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face&auto=format" 
+                                     alt="Angel Roberto" class="rounded-circle me-3" width="60" height="60">
+                                <div class="text-start">
+                                    <h5 class="mb-0 text-white">Angel Roberto</h5>
+                                </div>
+                            </div>
+                            <p class="text-light mb-0">Siempre tienen lo que necesito</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="testimonial-card bg-dark text-white p-4 rounded shadow h-100">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face&auto=format" 
+                                     alt="Sergio Rodríguez" class="rounded-circle me-3" width="60" height="60">
+                                <div class="text-start">
+                                    <h5 class="mb-0 text-white">Sergio Rodríguez</h5>
+                                </div>
+                            </div>
+                            <p class="text-light mb-0">Me gusta mucho comprar en esta ferretería, encuentras de todo</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    
+
     <!-- Footer Component -->
     <footer id="footer-component"></footer>
-    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JavaScript -->
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

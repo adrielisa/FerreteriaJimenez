@@ -1,5 +1,7 @@
 // Funcionalidad principal
 document.addEventListener('DOMContentLoaded', function() {
+    // Render components
+    renderComponents();
     
     // Manejar el menú hamburguesa
     const hamburger = document.getElementById('hamburger');
