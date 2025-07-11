@@ -1,0 +1,315 @@
+/* Contact Page Styles */
+
+/* Contact Hero Section - Sección naranja superior */
+.contact-hero {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.contact-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #2d3748;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.contact-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Hace la imagen blanca */
+}
+
+.contact-hero-title {
+    color: white;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    background-color: #f8f9fa;
+    padding: 5rem 0 4rem 0;
+    min-height: 60vh;
+}
+
+.contact-form-container {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Form Layout - Campos en fila para desktop */
+.contact-form-row {
+    margin-bottom: 1rem;
+}
+
+.contact-input,
+.contact-textarea {
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #4a5568;
+    transition: all 0.3s ease;
+    height: 50px;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    background-color: #cbd5e0;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    border-color: transparent;
+    outline: none;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+    color: #718096;
+    font-weight: 500;
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 140px;
+    height: auto;
+    font-family: inherit;
+}
+
+/* Botón Enviar */
+.contact-button-container {
+    text-align: right;
+}
+
+.btn-enviar {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.btn-enviar:hover {
+    background-color: #e55a2b;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+.btn-enviar:active {
+    transform: translateY(0);
+}
+
+.btn-enviar:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* CTA Button para WhatsApp */
+.contact-cta-container {
+    text-align: center;
+}
+
+.contact-form .cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.contact-form .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+.contact-form .cta-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .contact-hero {
+        min-height: 50vh;
+        padding-bottom: 2rem;
+    }
+    
+    .contact-hero-title {
+        font-size: 2rem;
+    }
+    
+    .contact-icon {
+        width: 70px;
+        height: 70px;
+        bottom: -35px;
+    }
+    
+    .contact-icon img {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .contact-form-section {
+        padding: 4.5rem 0 3rem 0;
+    }
+    
+    .contact-form-container {
+        padding: 2.5rem 2rem;
+    }
+    
+    /* En tablet y móvil, los campos se apilan verticalmente */
+    .contact-form-row .col-lg-4 {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-button-container {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero {
+        min-height: 45vh;
+        padding-bottom: 2rem;
+    }
+    
+    .contact-hero-content {
+        padding: 0 1.5rem;
+    }
+    
+    .contact-hero-title {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        bottom: -30px;
+    }
+    
+    .contact-icon img {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .contact-form-section {
+        padding: 4rem 0 2rem 0;
+    }
+    
+    .contact-form-container {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+        border-radius: 15px;
+    }
+    
+    .contact-input,
+    .contact-textarea {
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+        border-radius: 10px;
+        height: 48px;
+    }
+    
+    .contact-textarea {
+        min-height: 120px;
+        height: auto;
+    }
+    
+    .btn-enviar,
+    .contact-form .cta-button {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+        border-radius: 10px;
+        min-width: auto;
+    }
+    
+    .contact-button-container {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero {
+        min-height: 40vh;
+        padding-bottom: 1.5rem;
+    }
+    
+    .contact-hero-content {
+        padding: 0 1rem;
+    }
+    
+    .contact-hero-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        bottom: -25px;
+    }
+    
+    .contact-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .contact-form-section {
+        padding: 3.5rem 0 1.5rem 0;
+    }
+    
+    .contact-form-container {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        margin: 0 0.5rem;
+    }
+    
+    .contact-input,
+    .contact-textarea {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.9rem;
+        height: 45px;
+    }
+    
+    .contact-textarea {
+        min-height: 100px;
+    }
+}

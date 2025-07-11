@@ -1,5 +1,7 @@
 // Componente Header
 function HeaderComponent() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
     return `
         <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
             <div class="container">
@@ -12,16 +14,16 @@ function HeaderComponent() {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
+                            <a class="nav-link ${currentPage === 'index.html' || currentPage === '' ? 'active' : ''}" href="index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                            <a class="nav-link ${currentPage === 'nosotros.html' ? 'active' : ''}" href="nosotros.html">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="productos.html">Productos</a>
+                            <a class="nav-link ${currentPage === 'productos.html' ? 'active' : ''}" href="productos.html">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contacto</a>
+                            <a class="nav-link ${currentPage === 'contacto.html' ? 'active' : ''}" href="contacto.html">Contacto</a>
                         </li>
                     </ul>
                 </div>
@@ -57,10 +59,10 @@ function FooterComponent() {
     `;
 }
 
-// Componente Botón CTA (Call to Action)
+// Componente Botón CTA (Call to Action) - Para WhatsApp
 function CTAButtonComponent(text = "Quiero cotizar", variant = "primary") {
     return `
-        <button class="cta-button cta-button--${variant}" id="cta-main">
+        <button class="cta-button cta-button--${variant}" id="cta-main" onclick="openWhatsApp()">
             ${text}
         </button>
     `;

@@ -87,6 +87,18 @@
     height: auto;
 }
 
+/* Map Container */
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+}
+
 /* Footer */
 footer {
     background-color: #2d3748 !important;
@@ -166,5 +178,9 @@ footer {
     .brand-logo {
         max-width: 100%;
         max-height: 80px;
+    }
+    
+    .map-container iframe {
+        height: 300px;
     }
 }

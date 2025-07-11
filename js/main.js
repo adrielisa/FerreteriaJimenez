@@ -8,36 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburger) {
         hamburger.addEventListener('click', function() {
             this.classList.toggle('active');
-            // Aquí puedes agregar la lógica para mostrar/ocultar el menú
         });
     }
-    
-    // Manejar el botón de cotización
-    document.addEventListener('click', function(e) {
-        if (e.target && e.target.id === 'cta-main') {
-            handleCTAClick();
-        }
-    });
-    
 });
 
-// Función para manejar el click del botón CTA
-function handleCTAClick() {
-    // Aquí puedes agregar la lógica para la cotización
-    console.log('Botón de cotización clickeado');
+// Función para abrir WhatsApp con mensaje precargado
+function openWhatsApp() {
+    const phoneNumber = "5219982315516"; 
+    const message = "¡Hola! Me interesa cotizar ¿Podrían ayudarme?";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
-    // Ejemplo: cambiar el estado del botón
-    const button = document.getElementById('cta-main');
-    if (button) {
-        button.textContent = 'Procesando...';
-        button.classList.add('cta-button--loading');
-        
-        // Simular proceso
-        setTimeout(() => {
-            button.textContent = 'Quiero cotizar';
-            button.classList.remove('cta-button--loading');
-        }, 2000);
-    }
+    // Abrir WhatsApp en nueva ventana
+    window.open(whatsappURL, '_blank');
 }
 
 // Función para cambiar el variant del botón CTA
