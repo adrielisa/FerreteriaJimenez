@@ -109,7 +109,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.25rem;
     transition: transform 0.3s ease;
     flex-shrink: 0;
     overflow: hidden;
