@@ -135,9 +135,9 @@
     }
 }
 
-/* Pausa la animación al hacer hover */
-.brands-carousel:hover .brands-track {
-    animation-play-state: paused;
+/* Mantiene la animación siempre corriendo */
+.brands-track {
+    animation-play-state: running;
 }
 
 /* Map Container */
