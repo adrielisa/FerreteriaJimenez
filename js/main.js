@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para abrir WhatsApp con mensaje precargado
 function openWhatsApp() {
-    const phoneNumber = "5219982315516"; 
+    const phoneNumber = "529983800061"; 
     const message = "¡Hola! Me interesa cotizar ¿Podrían ayudarme?";
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;

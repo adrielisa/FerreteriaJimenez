@@ -3,7 +3,7 @@
 /* Contact Hero Section - Sección naranja superior */
 .contact-hero {
     background: linear-gradient(135deg, #ff6b35, #f7931e);
-    min-height: 60vh;
+    min-height: 55vh;
     display: flex;
     align-items: center;
     text-align: center;
@@ -165,7 +165,7 @@
 /* Responsive Design */
 @media (max-width: 991px) {
     .contact-hero {
-        min-height: 50vh;
+        min-height: 40vh;
         padding-bottom: 2rem;
     }
     
@@ -204,7 +204,7 @@
 
 @media (max-width: 768px) {
     .contact-hero {
-        min-height: 45vh;
+        min-height: 35vh;
         padding-bottom: 2rem;
     }
     
@@ -268,7 +268,7 @@
 
 @media (max-width: 480px) {
     .contact-hero {
-        min-height: 40vh;
+        min-height: 35vh;
         padding-bottom: 1.5rem;
     }
     

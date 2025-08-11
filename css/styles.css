@@ -41,7 +41,7 @@
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, #ff6b35, #f7931e) !important;
-    min-height: 60vh;
+    min-height: 35vh;
     display: flex;
     align-items: center;
 }
@@ -125,6 +125,16 @@
     object-fit: contain;
     border-radius: 15px;
 }
+
+.brand-img-extra {
+    width: 192px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+}
+
 
 @keyframes scroll {
     0% {
@@ -237,3 +247,4 @@ footer {
         height: 300px;
     }
 }
+
