@@ -10,7 +10,7 @@ function HeaderComponent() {
                     <span></span>
                     <span></span>
                 </button>
-                <a class="navbar-brand logo ms-auto" href="index.html">Ferreterías Jiménez</a>
+                <a class="navbar-brand logo ms-auto" href="index.html">Ferretería Jiménez</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -37,7 +37,7 @@ function FooterComponent() {
     return `
         <div class="container">
             <div class="footer-content">
-                <h3>Ferreterías Jiménez</h3>
+                <h3>Ferretería Jiménez</h3>
                 <div class="footer-links">
                     <a href="contacto.html">Contacto</a>
                     <a href="nosotros.html">Acerca de</a>
