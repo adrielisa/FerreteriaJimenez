@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Offset más generoso para móviles y ajuste especial para viewport pequeños
             let extraOffset = 20;
             if (isMobile) {
-                extraOffset = window.innerHeight < 700 ? 60 : 50; // Más offset en pantallas pequeñas
+                extraOffset = window.innerHeight < 700 ? 120 : 100; // MUCHO más offset para móviles
             }
             
             const scrollPosition = targetTop - navbarHeight - extraOffset;
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.log('Usando fallback scrollIntoView');
                         const navbarHeight = getRealNavbarHeight();
                         window.scrollTo({
-                            top: target.offsetTop - navbarHeight - 50,
+                            top: target.offsetTop - navbarHeight - 100, // Offset agresivo para móvil
                             behavior: 'smooth'
                         });
                     }
