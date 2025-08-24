@@ -29,31 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return Math.ceil(height + paddingTop + paddingBottom);
     }
     
-    // Función SIMPLIFICADA para scroll - SIN complicaciones
-    function scrollToSection(targetId) {
-        const target = document.getElementById(targetId.replace('#', ''));
-        if (!target) return;
-        
-        // Detectar móvil de forma simple
-        const isMobile = window.innerWidth <= 768;
-        
-        // Offset súper agresivo para móviles
-        const offset = isMobile ? 150 : 80;
-        
-        // Scroll directo sin delays ni complicaciones
-        const scrollPosition = target.offsetTop - offset;
-        
-        window.scrollTo({
-            top: Math.max(0, scrollPosition),
-            behavior: 'smooth'
-        });
-    }
-    
-    // Event listener SIMPLIFICADO para navegación
+    // MÉTODO BRUTAL - GARANTIZADO que funciona
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
+            const targetId = this.getAttribute('href').replace('#', '');
+            const target = document.getElementById(targetId);
+            
+            if (!target) return;
             
             // Cerrar menú móvil si está abierto
             const navbarCollapse = document.querySelector('.navbar-collapse');
@@ -61,13 +44,26 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                 navbarToggler.click();
-                // Esperar que se cierre y hacer scroll
+                // Esperar que se cierre
                 setTimeout(() => {
-                    scrollToSection(targetId);
-                }, 350);
+                    // SCROLL BRUTAL - Sin cálculos complejos
+                    const isMobile = window.innerWidth <= 768;
+                    const offset = isMobile ? 200 : 100; // MUY AGRESIVO
+                    
+                    window.scrollTo({
+                        top: target.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }, 400);
             } else {
-                // Hacer scroll inmediatamente
-                scrollToSection(targetId);
+                // SCROLL BRUTAL INMEDIATO
+                const isMobile = window.innerWidth <= 768;
+                const offset = isMobile ? 200 : 100; // MUY AGRESIVO
+                
+                window.scrollTo({
+                    top: target.offsetTop - offset,
+                    behavior: 'smooth'
+                });
             }
         });
     });
