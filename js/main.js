@@ -29,41 +29,106 @@ document.addEventListener('DOMContentLoaded', function() {
         return Math.ceil(height + paddingTop + paddingBottom);
     }
     
-    // MÉTODO BRUTAL - GARANTIZADO que funciona
+    // Función mejorada para scroll suave con compensación para móviles
+    function scrollToSection(targetId) {
+        const target = document.getElementById(targetId.replace('#', ''));
+        if (!target) return;
+        
+        // Detectar si es móvil por ancho de pantalla Y user agent
+        const isMobile = window.innerWidth <= 768 || isMobileDevice;
+        
+        // En móviles, esperar más tiempo para que el menú colapse completamente
+        const delay = isMobile ? 400 : 150;
+        
+        setTimeout(() => {
+            const navbarHeight = getRealNavbarHeight();
+            
+            // Usar getBoundingClientRect para mejor precisión
+            const targetRect = target.getBoundingClientRect();
+            const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const targetTop = currentScrollY + targetRect.top;
+            
+            // Offset más generoso para móviles y ajuste especial para viewport pequeños
+            let extraOffset = 20;
+            if (isMobile) {
+                extraOffset = window.innerHeight < 700 ? 60 : 50; // Más offset en pantallas pequeñas
+            }
+            
+            const scrollPosition = targetTop - navbarHeight - extraOffset;
+            
+            // Asegurar que no hagamos scroll negativo
+            const finalPosition = Math.max(0, scrollPosition);
+            
+            window.scrollTo({
+                top: finalPosition,
+                behavior: 'smooth'
+            });
+            
+            // Verificar después de un momento si llegamos al lugar correcto (solo en móvil)
+            if (isMobile) {
+                setTimeout(() => {
+                    const currentPos = window.pageYOffset || document.documentElement.scrollTop;
+                    const targetCurrentRect = target.getBoundingClientRect();
+                    const targetCurrentTop = currentPos + targetCurrentRect.top;
+                    const expectedTop = targetCurrentTop - getRealNavbarHeight() - extraOffset;
+                    
+                    // Si hay una diferencia significativa, ajustar
+                    if (Math.abs(currentPos - expectedTop) > 10) {
+                        window.scrollTo({
+                            top: Math.max(0, expectedTop),
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 1000);
+            }
+        }, delay);
+    }
+ EXA    // Event listener mejorado para navegación con fallback
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href').replace('#', '');
-            const target = document.getElementById(targetId);
+            const targetId = this.getAttribute('href');
+            const target = document.getElementById(targetId.replace('#', ''));
             
             if (!target) return;
             
-            // Cerrar menú móvil si está abierto
+            // Cerrar el menú móvil PRIMERO
             const navbarCollapse = document.querySelector('.navbar-collapse');
             const navbarToggler = document.querySelector('.navbar-toggler');
             
             if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                navbarToggler.click();
-                // Esperar que se cierre
+                // Cerrar el menú
+                if (navbarToggler) {
+                    navbarToggler.click();
+                }
+                // Esperar a que el menú se cierre antes de hacer scroll
                 setTimeout(() => {
-                    // SCROLL BRUTAL - Sin cálculos complejos
-                    const isMobile = window.innerWidth <= 768;
-                    const offset = isMobile ? 200 : 100; // MUY AGRESIVO
-                    
+                    // Intentar método personalizado primero
+                    try {
+                        scrollToSection(targetId);
+                    } catch (error) {
+                        // Fallback: usar scrollIntoView nativo con offset
+                        console.log('Usando fallback scrollIntoView');
+                        const navbarHeight = getRealNavbarHeight();
+                        window.scrollTo({
+                            top: target.offsetTop - navbarHeight - 50,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 400); // Tiempo suficiente para que Bootstrap termine la animación
+            } else {
+                // Si el menú no está abierto, hacer scroll inmediatamente
+                try {
+                    scrollToSection(targetId);
+                } catch (error) {
+                    // Fallback para escritorio también
+                    console.log('Usando fallback scrollIntoView para desktop');
+                    const navbarHeight = getRealNavbarHeight();
                     window.scrollTo({
-                        top: target.offsetTop - offset,
+                        top: target.offsetTop - navbarHeight - 20,
                         behavior: 'smooth'
                     });
-                }, 400);
-            } else {
-                // SCROLL BRUTAL INMEDIATO
-                const isMobile = window.innerWidth <= 768;
-                const offset = isMobile ? 200 : 100; // MUY AGRESIVO
-                
-                window.scrollTo({
-                    top: target.offsetTop - offset,
-                    behavior: 'smooth'
-                });
+                }
             }
         });
     });

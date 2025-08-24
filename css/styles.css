@@ -1,9 +1,9 @@
 /* Custom Styles for Bootstrap */
 
-/* Smooth scrolling - DESACTIVADO para usar JavaScript personalizado */
-/* html {
+/* Smooth scrolling */
+html {
     scroll-behavior: smooth;
-} */
+}
 
 /* Asegurar que el navbar tenga altura consistente */
 body {
