@@ -1,7 +1,5 @@
 // Componente Header
 function HeaderComponent() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
     return `
         <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
             <div class="container">
@@ -10,20 +8,23 @@ function HeaderComponent() {
                     <span></span>
                     <span></span>
                 </button>
-                <a class="navbar-brand logo ms-auto" href="index.html">Ferretería Jiménez</a>
+                <a class="navbar-brand logo ms-auto" href="#hero">Ferretería Jiménez</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link ${currentPage === 'index.html' || currentPage === '' ? 'active' : ''}" href="index.html">Inicio</a>
+                            <a class="nav-link" href="#inicio">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ${currentPage === 'nosotros.html' ? 'active' : ''}" href="nosotros.html">Nosotros</a>
+                            <a class="nav-link" href="#nosotros">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ${currentPage === 'productos.html' ? 'active' : ''}" href="productos.html">Productos</a>
+                            <a class="nav-link" href="#productos">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ${currentPage === 'contacto.html' ? 'active' : ''}" href="contacto.html">Contacto</a>
+                            <a class="nav-link" href="#ubicacion">Ubicación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#opiniones">Opiniones</a>
                         </li>
                     </ul>
                 </div>
@@ -39,9 +40,9 @@ function FooterComponent() {
             <div class="footer-content">
                 <h3>Ferretería Jiménez</h3>
                 <div class="footer-links">
-                    <a href="contacto.html">Contacto</a>
-                    <a href="nosotros.html">Acerca de</a>
-                    <a href="productos.html">Productos</a>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#ubicacion">Ubicación</a>
                 </div>
                 <div class="social-links mt-3">
                     <a href="#" class="social-link" aria-label="Facebook">

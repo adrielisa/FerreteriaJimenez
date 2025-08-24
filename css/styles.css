@@ -1,5 +1,10 @@
 /* Custom Styles for Bootstrap */
 
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Header Component */
 .navbar {
     background-color: #2d3748 !important;
@@ -10,6 +15,16 @@
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.nav-link {
+    color: #cbd5e0 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff6b35 !important;
 }
 
 .hamburger {
