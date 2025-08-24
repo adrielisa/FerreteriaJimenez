@@ -41,8 +41,10 @@ function FooterComponent() {
                 <h3>Ferretería Jiménez</h3>
                 <div class="footer-links">
                     <a href="#inicio">Inicio</a>
+                    <a href="#nosotros">Nosotros</a>
                     <a href="#productos">Productos</a>
                     <a href="#ubicacion">Ubicación</a>
+                    <a href="#opiniones">Opiniones</a>
                 </div>
                 <div class="social-links mt-3">
                     <a href="#" class="social-link" aria-label="Facebook">

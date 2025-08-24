@@ -17,9 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                // Obtener la altura del navbar dinámicamente
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 70;
+                
+                // Calcular la posición del target menos la altura del navbar
+                const targetPosition = target.offsetTop - navbarHeight - 20; // 20px extra de padding
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
                 
                 // Cerrar el menú móvil si está abierto
@@ -34,10 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Highlight active section in navigation
+    // Highlight active section in navigation - Responsive
+    function getNavbarHeight() {
+        const navbar = document.querySelector('.navbar');
+        return navbar ? navbar.offsetHeight : 70;
+    }
+    
     const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '-100px 0px -100px 0px'
+        threshold: 0.2,
+        rootMargin: `-${getNavbarHeight() + 50}px 0px -50% 0px`
     };
     
     const observer = new IntersectionObserver((entries) => {
