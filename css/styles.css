@@ -5,10 +5,36 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Asegurar que el navbar tenga altura consistente */
+body {
+    padding-top: 0 !important; /* Remover cualquier padding superior que pueda interferir */
+}
+
 /* Header Component */
 .navbar {
     background-color: #2d3748 !important;
     padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    transition: all 0.3s ease;
+    /* Asegurar altura mínima consistente */
+    min-height: 70px;
+}
+
+/* Asegurar que el contenido del navbar no cambie de altura inesperadamente */
+.navbar-brand,
+.navbar-nav .nav-link {
+    line-height: 1.5;
+}
+
+/* Mejorar el comportamiento del collapse en móvil */
+.navbar-collapse {
+    transition: height 0.35s ease;
+}
+
+.navbar-collapse.collapsing {
+    transition: height 0.35s ease;
 }
 
 .navbar .logo {
