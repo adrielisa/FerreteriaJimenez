@@ -81,10 +81,31 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #ff6b35, #f7931e) !important;
-    min-height: 35vh;
+    background: linear-gradient(rgba(45, 55, 72, 0.7), rgba(45, 55, 72, 0.7)), url('../images/HERO.jpg') center/cover no-repeat !important;
+    min-height: 60vh;
     display: flex;
     align-items: center;
+    position: relative;
+    background-attachment: fixed; /* Efecto parallax */
+}
+
+/* Mejorar legibilidad del texto sobre la imagen */
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-weight: 700;
+}
+
+/* Responsive: desactivar parallax en móviles */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+        min-height: 50vh;
+    }
 }
 
 /* CTA Button */
