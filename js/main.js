@@ -221,6 +221,56 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, 250);
     });
+    
+    // Funcionalidad del carrusel de categorías
+    initCategoriesCarousel();
+});
+
+// Función para inicializar el carrusel de categorías
+function initCategoriesCarousel() {
+    const carousel = document.querySelector('.categories-carousel');
+    const track = document.querySelector('.categories-track');
+    
+    if (!carousel || !track) return;
+    
+    // Mejorar el scroll con wheel/trackpad
+    carousel.addEventListener('wheel', function(e) {
+        if (e.deltaY !== 0) {
+            e.preventDefault();
+            carousel.scrollLeft += e.deltaY;
+        }
+    });
+    
+    // Mejorar scroll en móviles con momentum
+    let isScrolling = false;
+    
+    carousel.addEventListener('scroll', function() {
+        if (!isScrolling) {
+            window.requestAnimationFrame(function() {
+                // Actualizar indicador si está cerca del final
+                const scrollIndicator = document.querySelector('.scroll-indicator');
+                if (scrollIndicator) {
+                    const isNearEnd = carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 50);
+                    scrollIndicator.style.opacity = isNearEnd ? '0.3' : '0.7';
+                }
+                isScrolling = false;
+            });
+        }
+        isScrolling = true;
+    });
+    
+    // Añadir efecto de hover suave para las tarjetas
+    const cards = document.querySelectorAll('.category-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
 });
 
 // Función para abrir WhatsApp con mensaje precargado
